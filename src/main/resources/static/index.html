@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather Search App</title>
+  <style>
+    body { font-family: Arial; padding: 30px; }
+    input { padding: 10px; width: 260px; }
+    button { padding: 10px 15px; cursor: pointer; }
+    .card { margin-top: 20px; padding: 20px; border: 1px solid #ccc; width: 400px; border-radius: 12px; }
+    .title { font-size: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h2>🌤 Weather Search Engine</h2>
+
+<input id="city" placeholder="Enter city (example Pune)" />
+<button onclick="searchWeather()">Search</button>
+
+<div id="result" class="card" style="display:none;"></div>
+
+<script>
+async function searchWeather() {
+  const city = document.getElementById("city").value;
+
+  if (!city) {
+    alert("Please enter city name");
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/weather?city=${city}`);
+    if (!res.ok) {
+      alert("City not found / API error!");
+      return;
+    }
+
+    const data = await res.json();
+
+    const box = document.getElementById("result");
+    box.style.display = "block";
+
+    box.innerHTML = `
+      <div class="title">📍 ${data.city}</div>
+      <p>🌡 Temperature: <b>${data.temperature} °C</b></p>
+      <p>🤒 Feels Like: <b>${data.feelsLike} °C</b></p>
+      <p>💧 Humidity: <b>${data.humidity} %</b></p>
+      <p>💨 Wind Speed: <b>${data.windSpeed} m/s</b></p>
+      <p>☁️ Description: <b>${data.description}</b></p>
+    `;
+  } catch (e) {
+    alert("Server not responding!");
+  }
+}
+</script>
+
+</body>
+</html>
