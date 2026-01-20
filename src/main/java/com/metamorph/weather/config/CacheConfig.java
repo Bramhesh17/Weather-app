@@ -17,8 +17,8 @@ public class CacheConfig {
         CaffeineCacheManager manager = new CaffeineCacheManager("weatherCache");
 
         manager.setCaffeine(Caffeine.newBuilder()
-                .maximumSize(100) // ✅ max cache entries
-                .expireAfterWrite(Duration.ofMinutes(10))); // ✅ cache expiry
+                .maximumSize(100) // max cache entries
+                .expireAfterWrite(Duration.ofMinutes(10))); //cache expiry
 
         return manager;
     }

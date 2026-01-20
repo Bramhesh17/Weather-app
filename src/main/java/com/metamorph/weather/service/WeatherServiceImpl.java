@@ -25,7 +25,7 @@ public class WeatherServiceImpl implements WeatherService {
     @Cacheable(value = "weatherCache", key = "#city.toLowerCase()")
     public WeatherResponse getWeatherByCity(String city) {
 
-        // ✅ this print proves caching (first time only)
+        // this print proves caching (first time only)
         System.out.println("🔴 OPENWEATHER API HIT (Not cache): " + city);
 
         String url = baseUrl + "?q=" + city + "&appid=" + apiKey + "&units=metric";
