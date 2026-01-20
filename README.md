@@ -38,3 +38,5 @@ Add:
 ```properties
 weather.api.key=YOUR_API_KEY
 weather.api.base-url=https://api.openweathermap.org/data/2.5/weather
+
+
