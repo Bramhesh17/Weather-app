@@ -48,4 +48,3 @@ Step 2: Run the project
 	Start the Spring Boot application.
 	Then open the UI in browser:
 	http://localhost:8080/index.html
-	
