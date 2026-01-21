@@ -33,6 +33,7 @@
 
 
 #How to Run
+
 Step 1: Add OpenWeather API key
 
 	Go to:
@@ -42,4 +43,10 @@ Add:
 
 	weather.api.key=YOUR_API_KEY
 	weather.api.base-url=https://api.openweathermap.org/data/2.5/weather
+	
+Step 2: Run the project
+
+	Start the Spring Boot application.
+	Then open the UI in browser:
+	http://localhost:8080/index.html
 	
